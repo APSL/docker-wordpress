@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "--> wp start script running.."
+# sets wp keys in env, if not defined
+# keys used by envtpl for wp-config.php.tpl
+eval $(/usr/local/bin/genkeys.py AUTH_KEY SECURE_AUTH_KEY LOGGED_IN_KEY NONCE_KEY AUTH_SALT SECURE_AUTH_SALT LOGGED_IN_SALT NONCE_SALT)
+
+# Config files from templates with envtpl, using env vars
+echo "---> Configuring wp-config.php..."
+envtpl  -o  /app/www/wp-config.php  --keep-template --allow-missing /root/wp-config.php.tpl
+echo "---> Configuring apache vhost blog.conf..."
+envtpl  -o  /etc/apache2/sites-available/wordpress.conf  --keep-template --allow-missing /root/apache-vhost.conf.tpl
+a2ensite wordpress
+
+#echo "---> Changing permissions for wp-content..."
+#[[ -d /app/www/wp-content ]] && chown www-data.www-data /app/www/wp-content -R && chmod ug+rw /app/www/wp-content -R
