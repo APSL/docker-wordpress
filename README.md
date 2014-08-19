@@ -20,15 +20,16 @@ As an example of envtpl, circus.ini itself is managed with envtpl
 
 Env vars (default value shown)::
 
-    DB_NAME=
-    DB_USER=
-    DB_PASSWORD=
-    DB_HOST=
-    DB_PORT=
+    -e DB_NAME=wordpress
+    -e DB_USER=wpuser
+    -e DB_PASSWORD=1234
+    -e DB_HOST=172.17.42.1
+    -e DB_PORT=3306
 
-    DOMAIN=
+    -e DOMAIN=hostname      # Sets WP_SITEURL and WP_HOME, and apache ServerName. default: container hostname. 
 
-    WP_TABLE_PREFIX=wp_
-    WPLANG=es_ES
-    WP_DEBUG=False
+    -e WP_TABLE_PREFIX=wp_
+    -e WPLANG=es_ES
+    -e WP_DEBUG=False
+    -e DB_COLLATE=""
 
