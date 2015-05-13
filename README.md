@@ -33,4 +33,4 @@ Env vars (default value shown)::
     -e WP_DEBUG=False
     -e DB_COLLATE=""
     -e WP_AUTO_UPDATE_CORE=true
-
+    -e WP_URL_PREFIX=""

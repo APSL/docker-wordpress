@@ -33,8 +33,8 @@ define('DB_CHARSET', '{{DB_CHARSET|default("utf8")}}');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '{{DB_COLLATE|default("")}}');
 
-define( 'WP_SITEURL', 'http://{{DOMAIN}}' );
-define( 'WP_HOME', 'http://{{DOMAIN}}' );
+define( 'WP_SITEURL', 'http://{{DOMAIN}}{{WP_URL_PREFIX | default("") }}' );
+define( 'WP_HOME', 'http://{{DOMAIN}}{{WP_URL_PREFIX | default("") }}' );
 
 /**#@+
  * Authentication Unique Keys.
