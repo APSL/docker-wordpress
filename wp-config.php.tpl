@@ -74,6 +74,7 @@ define ('WPLANG', '{{ WPLANG | default("es_ES") }}');
 define ('FS_METHOD', 'direct');
 
 define('WP_DEBUG', {{WP_DEBUG|default("false")}} );
+define( 'WP_AUTO_UPDATE_CORE', {{WP_AUTO_UPDATE_CORE|default("true")}} );
 
 /* That's all, stop editing! Happy blogging. */
 
